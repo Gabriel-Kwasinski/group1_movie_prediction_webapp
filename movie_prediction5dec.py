@@ -44,7 +44,7 @@ def show_prediction_page():
 
     st.write("""### Insira as informações do seu filme abaixo: """)
     is_collection = st.radio("Seu filme faz parte de uma franquia/coleção?", ("Sim", "Não"))
-    budget = st.slider("Qual o seu orçamento)", 100000, 5000000, 200000)
+    budget = st.slider("Qual o seu orçamento)", 100000, 20000000000, 500000)
     genre = st.selectbox("Qual o gênero do seu filme?", genre_list)
     popularity = st.slider("Qual a popularidade?", 0, 25, 5)
     release_date = st.number_input('Ano de lançamento:', 1900, 2020)
