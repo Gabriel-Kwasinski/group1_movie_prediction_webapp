@@ -44,7 +44,7 @@ def show_prediction_page():
 
     st.write("""### Insira as informações do seu filme abaixo: """)
     is_collection = st.radio("Seu filme faz parte de uma franquia/coleção?", ("Sim", "Não"))
-    budget = st.slider("Qual o seu orçamento)", 100000, 2000000000, 500000)
+    budget = st.slider("Qual o seu orçamento)", 100000, 5000000, 200000)
     genre = st.selectbox("Qual o gênero do seu filme?", genre_list)
     popularity = st.slider("Qual a popularidade?", 0, 25, 5)
     release_date = st.number_input('Ano de lançamento:', 1900, 2020)
@@ -72,18 +72,18 @@ def show_prediction_page():
         #date_list = [data['release_date']]
 
         
-        y = data['revenue']
-        X = data.drop('revenue', axis=1)
-        X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.2, random_state = 0)
-        from sklearn.neural_network import MLPClassifier
-        X = X_train
-        y = y_train
-        clf= MLPClassifier(hidden_layer_sizes=(150,200,250), max_iter=300,activation = 'relu',solver='lbfgs',random_state=1,alpha=1e-5)
-        clf.fit(X, y)
-        MLPClassifier(hidden_layer_sizes=(150,100,50), max_iter=300,activation = 'relu',solver='lbfgs',random_state=1,alpha=1e-5)
+       # y = data['revenue']
+       # X = data.drop('revenue', axis=1)
+       # X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.2, random_state = 0)
+       # from sklearn.neural_network import MLPClassifier
+       # X = X_train
+       # y = y_train
+       # clf= MLPClassifier(hidden_layer_sizes=(150,200,250), max_iter=300,activation = 'relu',solver='lbfgs',random_state=1,alpha=1e-5)
+       # clf.fit(X, y)
+       # MLPClassifier(hidden_layer_sizes=(150,100,50), max_iter=300,activation = 'relu',solver='lbfgs',random_state=1,alpha=1e-5)
         
         X = np.array([[is_collection, budget, genre, popularity, release_date, runtime, vote]])
-        revenue = clf.predict(X)
+       # revenue = clf.predict(X)
 
         if revenue[0] == 0:
             revenue = "Entre 100 e 500 mil"
