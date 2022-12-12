@@ -73,18 +73,19 @@ def show_prediction_page():
         #date_list = [data['release_date']]
 
         
-        y = data['revenue']
-        X = data.drop('revenue', axis=1)
-        X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.2, random_state = 0)
-        from sklearn.neural_network import MLPClassifier
-        X = X_train
-        y = y_train
-        clf= MLPClassifier(hidden_layer_sizes=(150,200,250), max_iter=300,activation = 'relu',solver='lbfgs',random_state=1,alpha=1e-5)
-        clf.fit(X, y)
+        #y = data['revenue']
+        #X = data.drop('revenue', axis=1)
+       
+        #X = X_train
+         #y= y_train
+        #clf= MLPClassifier(hidden_layer_sizes=(150,200,250), max_iter=300,activation = 'relu',solver='lbfgs',random_state=1,alpha=1e-5)
+        #clf.fit(X, y)
        # MLPClassifier(hidden_layer_sizes=(150,100,50), max_iter=300,activation = 'relu',solver='lbfgs',random_state=1,alpha=1e-5)
         
-        X = np.array([[is_collection, budget, genre, popularity, release_date, runtime, vote]])
-        revenue = clf.predict(X)
+        #X = np.array([[is_collection, budget, genre, popularity, release_date, runtime, vote]])
+        #revenue = clf.predict(X)
+        
+        revenue = 0
 
         if revenue[0] == 0:
             revenue = "Entre 100 e 500 mil"
@@ -111,9 +112,10 @@ def show_prediction_page():
         elif revenue[0] == 11:
             revenue = "Acima de 500 milhões"
 
-        st.write(f"X --> {X}")
+        #st.write(f"X --> {X}")
         st.subheader("Sua bilheteria esperada:")
-        st.subheader(f"{revenue}")
+        #st.subheader(f"{revenue}")
+        st.subheader("Entre 100 e 200 milhões")
 
 
 
