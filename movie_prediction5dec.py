@@ -85,7 +85,7 @@ def show_prediction_page():
         #X = np.array([[is_collection, budget, genre, popularity, release_date, runtime, vote]])
         #revenue = clf.predict(X)
         
-        revenue = 0
+        revenue = [0]
 
         if revenue[0] == 0:
             revenue = "Entre 100 e 500 mil"
